@@ -1,0 +1,18 @@
+<div class="col-xs-12 col-sm-10">
+
+    <div class="input-group col-xs-12 col-sm-6">
+        <label class="input-group-addon"># of Paragraphs</label>
+        <select ng-model="numberOfParagraphs" class="form-control">
+            <option ng-repeat="n in [1,2,3,4,5]" value="{{$index +1}}">{{$index + 1 }}</option>
+        </select>
+        <div class="input-group-btn">
+            <button ng-click="getParagraphs()" class="btn btn-danger">Generate, eh!</button>
+        </div>
+    </div>
+    <br>
+
+    <div class="well lighten" ng-hide="paragraphs.length == 0">
+        <h2>{{title}}</h2>
+        <p ng-repeat="p in paragraphs">{{p | capitalize}}</p>
+    </div>
+</div>

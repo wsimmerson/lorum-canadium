@@ -1,0 +1,20 @@
+{
+  "name": "lorum-canadium",
+  "version": "1.0.0",
+  "description": "Canadiana filler text",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "author": "wayne simmerson",
+  "license": "ISC",
+  "dependencies": {
+    "connect": "^3.3.5",
+    "gulp": "^3.9.0",
+    "serve-static": "^1.9.3"
+  }
+}

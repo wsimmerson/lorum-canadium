@@ -1,0 +1,19 @@
+body {
+    background-attachment: fixed;
+    background-image: url("/img/background.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.lighten {
+    opacity: 0.8;
+}
+
+.container {
+    margin-top: 70px;
+}
+
+p {
+    text-indent: 25px;
+}
