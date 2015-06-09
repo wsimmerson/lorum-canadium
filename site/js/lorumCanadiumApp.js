@@ -28,52 +28,53 @@ angular.module("lorumCanadiumApp", [])
                     });
 
                 $scope.generateTitle = function () {
-                    var title = "Lorum";
-                    var titleLength = Math.floor(Math.random() * 5 + 2);
-                    for (var x = 0; x < titleLength; x++) {
-                        var word = Math.floor(Math.random() * ($scope.data.words.length -1));
-                        title += " " +$scope.data.words[word];
+                    // var title = "Lorum";
+                    // var titleLength = Math.floor(Math.random() * 5 + 2);
+                    // for (var x = 0; x < titleLength; x++) {
+                    //     var word = Math.floor(Math.random() * ($scope.data.words.length -1));
+                    //     title += " " +$scope.data.words[word];
+                    // }
+                    // return title;
+                    var title = $scope.generateSentence();
+                    title = title.split(" ");
+                    if (title.length > 6) {
+                        title = title.slice(0,6);
                     }
-                    return title;
+                    return title.join(' ');
                 };
 
-                $scope.generateParagraph = function () {
+                $scope.generateSentence = function () {
 
                     var capitalize = function(sen) {
                         return sen.substring(0,1).toUpperCase() + sen.substring(1);
                     };
+                    
+                    var sentance = "";
+
+                    var template = $scope.data.templates[
+                        Math.floor(Math.random() * ($scope.data.templates.length -1) +1)
+                    ];
+                    template = template.split(' ');
+
+                    for (var i = 0; i < template.length; i++) {
+                            sentance += " " + template[i].replace(
+                                "temp",
+                                $scope.data.words[Math.floor(Math.random() * ($scope.data.words.length -1) +1 )]
+                            );
+                    }
+                    sentance = sentance.replace("undefined", "");
+                    return " " + capitalize(sentance.trim());
+                };
+
+                $scope.generateParagraph = function () {
+
 
                     var paragraph = "";
                     var sentancesNumber = Math.floor(Math.random() * (6 - 3) + 3);
 
-                    // for (var n = 0; n < sentancesNumber; n++) {
-                    //     var sentance = "";
-                    //     var sentanceLength = Math.floor(Math.random() * (15 - 7) + 7);
-                    //     for (var i = 0; i < sentanceLength; i++) {
-                    //         var word = Math.floor(Math.random() * ($scope.data.words.length -1));
-                    //         sentance += " " + $scope.data.words[word];
-                    //     }
-                    //     paragraph += capitalize(sentance);
-                    //     paragraph += $scope.punctuation[
-                    //         Math.floor(Math.random() * ($scope.punctuation.length -1))
-                    //     ];
-                    // }
+                    for (var n = 0; n < sentancesNumber; n++) {
 
-                    for (var n = 0; n < sentancesNumber; n++){
-                        var sentance = "";
-                        var template = $scope.data.templates[
-                            Math.floor(Math.random() * ($scope.data.templates.length -1) +1)
-                        ];
-                        template = template.split(' ');
-
-                        for (var i = 0; i < template.length; i++) {
-                                sentance += " " + template[i].replace(
-                                    "temp",
-                                    $scope.data.words[Math.floor(Math.random() * ($scope.data.words.length -1) +1 )]
-                                );
-                        }
-                        sentance = sentance.replace("undefined", "");
-                        paragraph += " " + capitalize(sentance.trim());
+                        paragraph += $scope.generateSentence();
                     }
 
                     return paragraph.trim();
