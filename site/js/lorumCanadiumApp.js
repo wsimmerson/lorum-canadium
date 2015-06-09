@@ -21,6 +21,8 @@ angular.module("lorumCanadiumApp", [])
                 $http.get("/api/canadianisms.json")
                     .success(function(data) {
                         $scope.data = data;
+                        $scope.title = $scope.generateTitle();
+                        $scope.paragraphs.push($scope.generateParagraph());
                     })
                     .error(function(err) {
                         console.log(err);
