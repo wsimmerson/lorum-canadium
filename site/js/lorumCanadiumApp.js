@@ -21,26 +21,19 @@ angular.module("lorumCanadiumApp", [])
                 $http.get("/api/canadianisms.json")
                     .success(function(data) {
                         $scope.data = data;
-                        console.log($scope.data);
                     })
                     .error(function(err) {
                         console.log(err);
                     });
 
                 $scope.generateTitle = function () {
-                    // var title = "Lorum";
-                    // var titleLength = Math.floor(Math.random() * 5 + 2);
-                    // for (var x = 0; x < titleLength; x++) {
-                    //     var word = Math.floor(Math.random() * ($scope.data.words.length -1));
-                    //     title += " " +$scope.data.words[word];
-                    // }
-                    // return title;
+
                     var title = $scope.generateSentence();
                     title = title.split(" ");
                     if (title.length > 6) {
                         title = title.slice(0,6);
                     }
-                    return title.join(' ');
+                    return title.join(' ') + ", eh?";
                 };
 
                 $scope.generateSentence = function () {
@@ -48,7 +41,7 @@ angular.module("lorumCanadiumApp", [])
                     var capitalize = function(sen) {
                         return sen.substring(0,1).toUpperCase() + sen.substring(1);
                     };
-                    
+
                     var sentance = "";
 
                     var template = $scope.data.templates[
