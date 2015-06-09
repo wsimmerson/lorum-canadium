@@ -1,19 +1,22 @@
 {
     "words" : [
-        "Canada", "Canadian", "maple", "bacon", "eh", "poutine", "hockey", "puck", "igloo", "beer", "colour",
+        "maple", "bacon", "poutine", "hockey", "puck", "igloo", "beer", "colour",
         "moose", "beaver", "Canuck", "back bacon", "pop", "pogey", "hoser", "hydro", "chesterfield", "smoked meat",
-        "ketchup chips", "butter tart", "nanaimo bar","tourtiere", "loonie", "twoonie", "toque", "lacrosse",
+        "ketchup chips", "butter tart", "nanaimo bar","tourtiere", "loonie", "toonie", "toque", "lacrosse",
         "yellow pea soup", "Ogopogo", "maple syrup", "Hudson Bay", "plaid flanel", "queues", "donair", "parkade",
         "pablum", "freezie", "Royal", "Mounted Police", "fishing", "hunting", "skidooing", "snowshoe", "skiing",
-        "CN Tower", "Skydome",
+        "sorry"
+    ],
 
-        "Stop Harper", "Wayne Gretsky", "Sir John A. McDonald", "Banting", "Sir Robert Bordon", "Alexander Keith",
-        "Tragically Hip", "Bare Naked Ladies",
-
-        "Ontario", "Newfoundland & Labrador", "Saskatchewan", "Alberta", "British Columbia", "Prince Edward Island", "Nova Scotia",
-        "New Brunswick", "Manatoba", "Nunavut", "Quebec", "North West Territories",
-
-        "Toronto", "Calgary", "Halifax"
-
+    "templates" : [
+        "temp temp, the temp temp, will join temp and temp temp temp temp in Toronto.",
+        "temp to give a temp temp on the temp toward a temp temp within Canada.",
+        "Tim Hortons temp too temp to the temp, and its temp -- temp temp melted, eh?",
+        "The temp have temp temp in goaltender temp temp, and temp that temp will have no temp temp back in temp of the Stanley Cup finals.",
+        "temp was temp – hockey players are too temp to temp temp for games that temp next to temp in temp",
+        "temp there should temp temp for temp eats of all temp on this temp temp temp.",
+        "Borden temp his temp for temp by temp the temp to temp temp of temp",
+        "Maclean's magazine ranked temp first of temp temp Canada's temp temp",
+        "temp ahead of Sir John A. Macdonald, temp and temp eh?"
     ]
 }
