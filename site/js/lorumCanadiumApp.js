@@ -1,4 +1,4 @@
-angular.module("lorumCanadiumApp", [])
+angular.module("loremCanadiumApp", [])
     .filter('capitalize', function() {
         return function(input, scope) {
             if (input !== null)
@@ -17,16 +17,15 @@ angular.module("lorumCanadiumApp", [])
                 $scope.paragraphs = [];
                 $scope.punctuation = [".", ",", "!", "?"];
                 $scope.title = "";
+                $scope.language = "english";
 
-                $http.get("/api/canadianisms.json")
-                    .success(function(data) {
-                        $scope.data = data;
-                        $scope.title = $scope.generateTitle();
-                        $scope.paragraphs.push($scope.generateParagraph());
-                    })
-                    .error(function(err) {
-                        console.log(err);
-                    });
+                $scope.getEnglishData = function () {
+                    return $http.get("/api/canadianisms-english.json");
+                };
+
+                $scope.getFrenchData = function () {
+                    return $http.get("/api/canadianisms-french.json");
+                };
 
                 $scope.generateTitle = function () {
 
@@ -77,11 +76,32 @@ angular.module("lorumCanadiumApp", [])
 
                 $scope.getParagraphs = function() {
                     $scope.paragraphs = [];
-                    $scope.title = $scope.generateTitle();
-                    for (var x = 0; x < $scope.numberOfParagraphs; x++) {
-                        $scope.paragraphs.push($scope.generateParagraph());
+                    function genAll() {
+                        $scope.title = $scope.generateTitle();
+                        for (var x = 0; x < $scope.numberOfParagraphs; x++) {
+                            $scope.paragraphs.push($scope.generateParagraph());
+                        }
                     }
+                    if ($scope.language === "english") {
+                        $scope.getEnglishData()
+                            .then(function (data) {
+                                $scope.data = data.data;
+                                genAll();
+                           });
+                    }
+                    else {
+                        $scope.getFrenchData()
+                            .then(function (data) {
+                                $scope.data = data.data;
+                                genAll();
+                           });
+                    }
+
                 };
+
+                $scope.getParagraphs();
+
+
             }
         };
     });

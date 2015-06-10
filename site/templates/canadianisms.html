@@ -1,23 +1,57 @@
-<div class="col-xs-12 col-sm-10">
+<div>
+<div class="col-xs-12 col-sm-9">
 
-    <div class="input-group col-xs-12 col-sm-6">
-        <label class="input-group-addon"># of Paragraphs</label>
+    <div class="input-group col-xs-12 col-sm-12">
+        <label class="input-group-addon" ng-show="language == 'english'"># of Paragraphs</label>
+        <label class="input-group-addon" ng-show="language == 'french'"># Des Paragraphes</label>
+
         <select ng-model="numberOfParagraphs" class="form-control">
             <option ng-repeat="n in [1,2,3,4,5]" value="{{$index +1}}">{{$index + 1 }}</option>
         </select>
+
+        <label class="input-group-addon" ng-show="language == 'english'">English </label>
+        <label class="input-group-addon" ng-show="language == 'french'">Anglais </label>
+
+        <span class="input-group-addon"><input type="radio" value="english" ng-model="language"></span>
+
+        <label class="input-group-addon" ng-show="language == 'english'">French </label>
+        <label class="input-group-addon" ng-show="language == 'french'">Français </label>
+
+        <span class="input-group-addon"><input type="radio" name="french" value="french" ng-model="language"></span>
+
         <div class="input-group-btn">
-            <button ng-click="getParagraphs()" class="btn btn-danger">Generate, eh!</button>
+            <button ng-click="getParagraphs()" class="btn btn-danger" ng-show="language == 'english'">Generate, eh!</button>
+            <button ng-click="getParagraphs()" class="btn btn-danger" ng-show="language == 'french'">Générer, eh!</button>
         </div>
+
     </div>
     <br>
-        <div class="alert alert-info">
-            Bilingual version coming soon!
-        </div>
-    <br>
-
     <div class="well lighten" ng-hide="paragraphs.length == 0">
         <h2>{{title}}</h2>
         <p ng-repeat="p in paragraphs">{{p | capitalize}}</p>
     </div>
 
+</div>
+    <div class="pull-right lighten col-xs-12 col-sm-3" ng-show="language == 'english'">
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                What's Lorem Ipsum?
+            </div>
+            <div class="panel-body">
+                <p>In publishing and graphic design, lorem ipsum is a filler text commonly used to demonstrate the graphic elements of a document or visual presentation.</p>
+                <p>Replacing meaningful content with placeholder text allows viewers to focus on graphic aspects such as font, typography, and page layout without being distracted by the content. </p>
+            </div>
+        </div>
+    </div>
+    <div class="pull-right lighten col-xs-12 col-sm-3" ng-show="language == 'french'">
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                Quel est Lorem Ipsum?
+            </div>
+            <div class="panel-body">
+                <p>Dans l'édition et la conception graphique, de Lorem Ipsum est un texte de remplissage couramment utilisé pour démontrer les éléments graphiques d'un document ou une présentation visuelle.</p>
+                <p>Remplacement de contenu significatif avec le texte de l'espace réservé permet aux téléspectateurs de se concentrer sur les aspects graphiques tels que la police, typographie, mise en page et sans être distrait par le contenu.</p>
+            </div>
+        </div>
+    </div>
 </div>
