@@ -1,30 +1,45 @@
 <div>
 <div class="col-xs-12 col-sm-9">
 
-    <div class="input-group col-xs-12 col-sm-12">
-        <label class="input-group-addon" ng-show="language == 'english'"># of Paragraphs</label>
-        <label class="input-group-addon" ng-show="language == 'french'"># Des Paragraphes</label>
+    <div class="input-group col-xs-12 col-sm-12" ng-show="language == 'english'">
+        <label class="input-group-addon"># of Paragraphs</label>
 
         <select ng-model="numberOfParagraphs" class="form-control">
             <option ng-repeat="n in [1,2,3,4,5]" value="{{$index +1}}">{{$index + 1 }}</option>
         </select>
 
-        <label class="input-group-addon" ng-show="language == 'english'">English </label>
-        <label class="input-group-addon" ng-show="language == 'french'">Anglais </label>
+        <label class="input-group-addon">English </label>
 
         <span class="input-group-addon"><input type="radio" value="english" ng-model="language"></span>
 
-        <label class="input-group-addon" ng-show="language == 'english'">French </label>
-        <label class="input-group-addon" ng-show="language == 'french'">Français </label>
+        <label class="input-group-addon">French </label>
 
         <span class="input-group-addon"><input type="radio" name="french" value="french" ng-model="language"></span>
 
         <div class="input-group-btn">
-            <button ng-click="getParagraphs()" class="btn btn-danger" ng-show="language == 'english'">Generate, eh!</button>
-            <button ng-click="getParagraphs()" class="btn btn-danger" ng-show="language == 'french'">Générer, eh!</button>
+            <button ng-click="getParagraphs()" class="btn btn-danger">Generate, eh!</button>
         </div>
-
     </div>
+
+    <div class="input-group col-xs-12 col-sm-12" ng-show="language == 'french'">
+        <label class="input-group-addon"># Des Paragraphes</label>
+
+        <select ng-model="numberOfParagraphs" class="form-control">
+            <option ng-repeat="n in [1,2,3,4,5]" value="{{$index +1}}">{{$index + 1 }}</option>
+        </select>
+
+        <label class="input-group-addon">Anglais </label>
+
+        <span class="input-group-addon"><input type="radio" value="english" ng-model="language"></span>
+        <label class="input-group-addon">Français </label>
+
+        <span class="input-group-addon"><input type="radio" name="french" value="french" ng-model="language"></span>
+
+        <div class="input-group-btn">
+            <button ng-click="getParagraphs()" class="btn btn-danger">Générer, eh!</button>
+        </div>
+    </div>
+
     <br>
     <div class="well lighten" ng-hide="paragraphs.length == 0">
         <h2>{{title}}</h2>
